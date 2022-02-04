@@ -23,7 +23,7 @@ const About = () => {
                 Here are a few technologies I’ve been working with recently:
                 </Typography>
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
-                    <Grid item xs={4} md={4}>
+                    <Grid margin={2} item xs={4} md={4}>
                         <Typography mt={2} fontFamily={"monospace"} textAlign='start' color={"#8892AF"} variant="body1">
                         <SiJavascript size={20} color='green' />    JavaScript
                         </Typography>
@@ -49,7 +49,7 @@ const About = () => {
                         </Typography>
                         <LinearProgress variant="determinate" value={10} />
                     </Grid>
-                    <Grid item xs={4} md={4}>
+                    <Grid margin={2} item xs={4} md={4}>
                         <Typography mt={2} fontFamily={"monospace"} textAlign='start' color={"#8892AF"} variant="body1">
                         <SiReact size={20} color='green' />    React Native
                         </Typography>

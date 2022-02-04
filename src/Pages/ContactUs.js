@@ -21,9 +21,9 @@ const ContactUs = () => {
                 Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
                 </Typography>
                 <div style={{alignSelf:'center', margin:20}}>
-                    <BsGithub size={20} color='white' />
-                    <BsLinkedin size={20} style={{marginLeft:20}} color='white' />
-                    <BsTwitter size={20} style={{marginLeft:20}} color='white' />
+                    <BsGithub size={20} color='#0B192E' />
+                    <BsLinkedin size={20} style={{marginLeft:20}} color='#0B192E' />
+                    <BsTwitter size={20} style={{marginLeft:20}} color='#0B192E' />
                 </div>
                 <Button style={{width:'50%', alignSelf:'center', fontFamily:'monospace'}} variant="outlined">Say Namaste 🙏</Button>
             </div>
