@@ -11,7 +11,7 @@ const ContactUs = () => {
             <Divider style={{fontFamily:'monospace', fontWeight:'bold', fontSize:24, color:'#0B192E'}} textAlign="left">04. Contact</Divider>
             <div style={{height:'90%', width:'100%', display:'flex', flexDirection:'column', justifyContent:'center'}}>
             <img src={contactJashan} style={{ width:'200px', height:'200px', alignSelf:'center'}}  />
-                <Typography textAlign='center'  fontFamily={"monospace"} color={"#0B192E"} variant="h2" gutterBottom component="div">
+                <Typography textAlign='center'  fontFamily={"monospace"} color={"#0B192E"} variant="h4" gutterBottom component="div">
                     Get In Touch
                 </Typography>
                 {/* <Typography  fontFamily={"monospace"} color={"#8892AF"} variant="h3" gutterBottom component="div">
