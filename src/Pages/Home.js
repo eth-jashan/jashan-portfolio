@@ -7,11 +7,11 @@ const Home = () => {
     return(
         <div style={{height:'100vh', width:'100%', background:'#0B192E'}}>
             <Header />
-            <div style={{height:'100%', width:'100%', display:'flex', flexDirection:'column', justifyContent:'center', paddingLeft:30}}>
-                <Typography textAlign='start' display={'flex'}  fontFamily={"monospace"} color={"white"} variant="h2" gutterBottom component="div">
+            <div style={{height:'100%', width:'100%', display:'flex', flexDirection:'column', justifyContent:'center'}}>
+                <Typography textAlign='start' display={'flex'}  fontFamily={"monospace"} color={"white"} variant="h3" gutterBottom component="div">
                     Jashan Shetty
                 </Typography>
-                <Typography textAlign='start' display={'flex'} fontFamily={"monospace"} color={"#8892AF"} variant="h3" gutterBottom component="div">
+                <Typography textAlign='start' display={'flex'} fontFamily={"monospace"} color={"#8892AF"} variant="h4" gutterBottom component="div">
                     I build things for the web.
                 </Typography>
                 <Typography display={'flex'} fontFamily={"monospace"} textAlign='start' color={"#8892AF"} variant="body1">

@@ -9,15 +9,15 @@ import {SiWeb3Dotjs, SiJavascript, SiTypescript,  SiSolidity, SiCss3, SiPython, 
 
 const About = () => {
     return(
-        <div style={{height:'100vh', width:'100%', background:'white'}}>
+        <div style={{height:'100%', width:'100%', background:'white'}}>
             <Divider style={{fontFamily:'monospace', fontWeight:'bold', fontSize:24, color:'#0B192E'}} textAlign="left">01. About</Divider>
             <div style={{height:'90%', width:'100%', background:'white', display:'flex', alignItems:'center', justifyContent:'center'}}>
             <Grid justifyContent='center' alignItems='center' container spacing={2}>
             <Grid item xs={0} md={4}>
-            <img src={image} style={{ width:'100%', height:'70%'}}  />
+            <img src={image} style={{ width:'200px', height:'200px'}}  />
             </Grid>
             <Grid style={{padding:'18px'}} item xs={12} md={6}>
-                <Typography fontFamily={"monospace"} textAlign='start' color={"#8892AF"} variant="body1">
+                <Typography fontFamily={"monospace"} textAlign='center' color={"#8892AF"} variant="body1">
                 Hello! My name is <a style={{color:'green'}}>Jashan</a> and I enjoy creating things that live on the internet. My interest in <a style={{color:'green'}}> Web & Hybrid Mobile development</a> started back in 2018 when I decided to try editing custom Tumblr themes — turns out hacking together a custom reblog button taught me a lot about HTML & CSS!
                 Fast-forward to today, and I’ve had the privilege of working at an freelancing agency, a start-up, a huge corporation, and a student-led design studio. My main focus these days is building accessible, and Evehicle ecosystem platform at <a style={{color:'green'}}>Eveels</a>.
                 Here are a few technologies I’ve been working with recently:
