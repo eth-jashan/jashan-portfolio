@@ -20,7 +20,7 @@ export default function Footer() {
               JS
             </motion.a>
             <p className="text-text-secondary max-w-xs">
-              Frontend Engineer passionate about building exceptional digital experiences.
+              Full Stack Developer passionate about building exceptional digital experiences.
             </p>
           </div>
 

@@ -1,12 +1,12 @@
 export const personalInfo = {
   name: 'Jashan Shetty',
-  title: 'Frontend Engineer',
+  title: 'Full Stack Developer',
   email: 'jashanshetty1709@gmail.com',
   phone: '+91 9820769479',
   location: 'Bangalore, India',
   github: 'https://github.com/eth-jashan',
   linkedin: 'https://www.linkedin.com/in/jashan-shetty-aa1501141/',
-  bio: 'Results-driven Full Stack Developer with 4 years of professional experience crafting robust web and mobile applications using React, React Native, and Node.js.',
+  bio: 'Results-driven Full Stack Developer with 4 years of professional experience crafting robust web and mobile applications using Python, Django, React, and Node.js.',
   summary: [
     'Architecting and implementing scalable solutions that have improved application performance by 40%',
     'Leading the development of 5+ successful projects from concept to deployment in fast-paced startup environments',
@@ -16,11 +16,11 @@ export const personalInfo = {
 }
 
 export const skills = {
-  languages: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python'],
-  frameworks: ['React', 'React Native', 'Next.js', 'Node.js'],
-  tools: ['GraphQL', 'WebSockets', 'Solidity', 'AWS', 'Git'],
-  methodologies: ['CI/CD', 'Agile', 'TDD'],
-  others: ['Blockchain', 'Analytics', 'Sentry'],
+  languages: ['Python', 'JavaScript', 'TypeScript', 'HTML', 'CSS'],
+  frameworks: ['Django', 'React', 'React Native', 'Next.js', 'Node.js'],
+  tools: ['PostgreSQL', 'GraphQL', 'WebSockets', 'AWS', 'Git', 'Docker'],
+  methodologies: ['CI/CD', 'Agile', 'TDD', 'REST APIs'],
+  others: ['Celery', 'Redis', 'Blockchain', 'Analytics'],
 }
 
 export const experience = [
