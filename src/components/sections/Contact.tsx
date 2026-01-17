@@ -144,7 +144,7 @@ export default function Contact() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
               </span>
               <span className="text-sm md:text-base text-text-secondary">
-                Currently available for <span className="text-white font-medium">Frontend Engineer</span> roles
+                Currently available for <span className="text-white font-medium">Full Stack Engineer</span> roles
               </span>
             </div>
           </motion.div>

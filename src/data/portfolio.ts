@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: 'Jashan Shetty',
-  title: 'Frontend Engineer',
+  title: 'Full Stack Engineer',
   email: 'jashanshetty1709@gmail.com',
   phone: '+91 9820769479',
   location: 'Bangalore, India',
@@ -25,7 +25,7 @@ export const skills = {
 
 export const experience = [
   {
-    title: 'Frontend Engineer',
+    title: 'Software Development Engineer',
     company: 'DeepReel',
     location: 'Remote',
     period: 'Jan 2025 - Present',

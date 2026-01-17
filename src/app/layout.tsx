@@ -6,9 +6,9 @@ import LoadingScreen from '@/components/ui/LoadingScreen'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jashanshetty.com'),
-  title: 'Jashan Shetty | Frontend Engineer',
+  title: 'Jashan Shetty | Full Stack Engineer',
   description: 'Results-driven Full Stack Developer with 4 years of professional experience crafting robust web and mobile applications using React, React Native, and Node.js.',
-  keywords: ['Frontend Engineer', 'React Developer', 'Full Stack Developer', 'Jashan Shetty', 'Web Developer', 'React Native', 'Node.js', 'TypeScript'],
+  keywords: ['Full Stack Engineer', 'React Developer', 'Full Stack Developer', 'Jashan Shetty', 'Web Developer', 'React Native', 'Node.js', 'TypeScript'],
   authors: [{ name: 'Jashan Shetty' }],
   icons: {
     icon: '/icon.png',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     apple: '/icon.png',
   },
   openGraph: {
-    title: 'Jashan Shetty | Frontend Engineer',
+    title: 'Jashan Shetty | Full Stack Engineer',
     description: 'Results-driven Full Stack Developer with 4 years of professional experience',
     type: 'website',
     locale: 'en_US',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jashan Shetty | Frontend Engineer',
+    title: 'Jashan Shetty | Full Stack Engineer',
     description: 'Results-driven Full Stack Developer with 4 years of professional experience',
     images: ['/avatar.png'],
   },
