@@ -198,6 +198,7 @@ export const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
+  { name: 'GitHub', href: '#github' },
   { name: 'Skills', href: '#skills' },
   { name: 'Contact', href: '#contact' },
 ]
