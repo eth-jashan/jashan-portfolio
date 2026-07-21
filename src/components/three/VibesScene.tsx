@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Environment, MeshReflectorMaterial } from '@react-three/drei'
+import { Environment, Lightformer, MeshReflectorMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 
 export interface VinylData {
@@ -344,8 +344,12 @@ export default function VibesScene({ currentVinyl, isPlaying }: VibesSceneProps)
       {/* Reflective ground */}
       <ReflectiveGround color={color} />
 
-      {/* Environment for reflections */}
-      <Environment preset="night" />
+      {/* Environment for reflections (locally generated, no network fetch) */}
+      <Environment resolution={64}>
+        <Lightformer intensity={1.5} position={[0, 5, -5]} scale={[10, 10, 1]} color={color} />
+        <Lightformer intensity={1} position={[5, -1, 4]} scale={[8, 8, 1]} color="#ffffff" />
+        <Lightformer intensity={0.6} position={[-5, 2, 3]} scale={[8, 8, 1]} color={color} />
+      </Environment>
 
       {/* Fog for depth */}
       <fog attach="fog" args={['#060609', 8, 25]} />

@@ -60,11 +60,11 @@ export default function Navigation() {
             {/* Logo */}
             <motion.a
               href="#home"
-              className="text-2xl font-display font-bold gradient-text"
+              className="text-xl md:text-2xl font-display font-bold gradient-text font-mono"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              JS
+              $JSHN
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -96,7 +96,7 @@ export default function Navigation() {
             {/* CTA Button */}
             <div className="hidden md:block">
               <MagneticButton
-                className="px-6 py-2 bg-accent text-white text-sm font-medium rounded-full hover:bg-accent-light transition-colors"
+                className="px-6 py-2 bg-accent text-primary text-sm font-semibold rounded-full hover:bg-accent-light transition-colors glow"
                 onClick={() => handleNavClick('#contact')}
               >
                 Let&apos;s Talk

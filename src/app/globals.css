@@ -3,15 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --primary: #0a0a0a;
-  --secondary: #1a1a1a;
-  --accent: #6366f1;
-  --accent-light: #818cf8;
-  --text-primary: #fafafa;
-  --text-secondary: #a1a1aa;
-  --gradient-1: #6366f1;
-  --gradient-2: #8b5cf6;
-  --gradient-3: #d946ef;
+  --primary: #050807;
+  --secondary: #0b120e;
+  --accent: #00e676;
+  --accent-light: #5cffab;
+  --gold: #f5c518;
+  --gold-light: #ffe27a;
+  --danger: #ff4d5e;
+  --text-primary: #f2fbf6;
+  --text-secondary: #8aa398;
+  --gradient-1: #00e676;
+  --gradient-2: #34d399;
+  --gradient-3: #f5c518;
 }
 
 * {
@@ -33,7 +36,7 @@ body {
 /* Selection */
 ::selection {
   background: var(--accent);
-  color: var(--text-primary);
+  color: #041008;
 }
 
 /* Custom Scrollbar */
@@ -67,9 +70,34 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Gradient text */
+/* Scanline overlay — trading terminal feel */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 230, 118, 0.035) 0px,
+    rgba(0, 230, 118, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: screen;
+}
+
+/* Gradient text — money green into gold */
 .gradient-text {
-  background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+  background: linear-gradient(120deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 8s ease infinite;
+}
+
+.gold-text {
+  background: linear-gradient(120deg, var(--gold), var(--gold-light), var(--gold));
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -79,21 +107,34 @@ body {
 
 /* Glow effect */
 .glow {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3),
-              0 0 40px rgba(99, 102, 241, 0.2),
-              0 0 60px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.35),
+              0 0 40px rgba(0, 230, 118, 0.2),
+              0 0 60px rgba(0, 230, 118, 0.1);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(245, 197, 24, 0.35),
+              0 0 40px rgba(245, 197, 24, 0.2);
 }
 
 .glow-text {
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5),
-               0 0 40px rgba(99, 102, 241, 0.3);
+  text-shadow: 0 0 20px rgba(0, 230, 118, 0.5),
+               0 0 40px rgba(0, 230, 118, 0.3);
 }
 
 /* Glass effect */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 230, 118, 0.03);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 230, 118, 0.12);
+}
+
+/* Terminal panel */
+.terminal {
+  background: linear-gradient(180deg, rgba(11, 18, 14, 0.9), rgba(5, 8, 7, 0.9));
+  border: 1px solid rgba(0, 230, 118, 0.18);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
 }
 
 /* Magnetic button base */
@@ -106,18 +147,25 @@ body {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Grid pattern background */
+/* Chart / candlestick grid background */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+    linear-gradient(rgba(0, 230, 118, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 230, 118, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.grid-pattern-fine {
+  background-image:
+    linear-gradient(rgba(0, 230, 118, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 230, 118, 0.04) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 /* Dot pattern */
 .dot-pattern {
-  background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(0, 230, 118, 0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 /* Animated border gradient */
@@ -130,10 +178,10 @@ body {
 .animated-border::before {
   content: '';
   position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-1));
+  inset: -1px;
+  background: linear-gradient(45deg, var(--gradient-1), var(--gradient-3), var(--gradient-1));
   background-size: 400% 400%;
-  border-radius: 14px;
+  border-radius: 13px;
   z-index: -1;
   animation: gradient 8s ease infinite;
   opacity: 0;

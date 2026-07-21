@@ -46,13 +46,13 @@ export default function Contact() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            Let&apos;s Connect
+            {'// Open a Position'}
           </motion.span>
 
           <div className="mb-6 md:mb-8">
             <AnimatedText
-              text="Ready to Build Something Great?"
-              className="text-3xl md:text-5xl lg:text-7xl font-display font-bold"
+              text="Let's Talk Business"
+              className="text-3xl md:text-5xl lg:text-7xl font-display font-bold justify-center"
             />
           </div>
 
@@ -62,9 +62,27 @@ export default function Contact() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            I&apos;m currently open to new opportunities and would love to hear from you.
-            Let&apos;s discuss how we can create something amazing together.
+            Building something at the edge of AI, crypto, or fintech? I ship 0-to-1 and
+            close loops fast. Let&apos;s find out if the numbers work.
           </motion.p>
+
+          {/* Resume download */}
+          <motion.a
+            href={personalInfo.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-primary font-semibold text-sm md:text-base glow hover:bg-accent-light transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            animate={titleInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Résumé
+          </motion.a>
         </div>
 
         {/* Social Cards */}
@@ -144,7 +162,7 @@ export default function Contact() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
               </span>
               <span className="text-sm md:text-base text-text-secondary">
-                Currently available for <span className="text-white font-medium">Full Stack Engineer</span> roles
+                Currently available for <span className="text-white font-medium">Senior Full-Stack Engineer</span> roles
               </span>
             </div>
           </motion.div>

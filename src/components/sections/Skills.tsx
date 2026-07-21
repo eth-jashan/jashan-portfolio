@@ -7,27 +7,31 @@ import AnimatedText from '@/components/ui/AnimatedText'
 
 const allSkills = [
   { name: 'React', category: 'frameworks', level: 95, color: '#61DAFB' },
-  { name: 'React Native', category: 'frameworks', level: 90, color: '#61DAFB' },
-  { name: 'Next.js', category: 'frameworks', level: 88, color: '#ffffff' },
-  { name: 'TypeScript', category: 'languages', level: 92, color: '#3178C6' },
-  { name: 'JavaScript', category: 'languages', level: 95, color: '#F7DF1E' },
-  { name: 'Node.js', category: 'frameworks', level: 85, color: '#339933' },
-  { name: 'Python', category: 'languages', level: 70, color: '#3776AB' },
-  { name: 'GraphQL', category: 'tools', level: 80, color: '#E10098' },
-  { name: 'WebSockets', category: 'tools', level: 85, color: '#6366f1' },
-  { name: 'Solidity', category: 'tools', level: 75, color: '#363636' },
-  { name: 'AWS', category: 'tools', level: 72, color: '#FF9900' },
-  { name: 'Git', category: 'tools', level: 90, color: '#F05032' },
-  { name: 'HTML', category: 'languages', level: 98, color: '#E34F26' },
-  { name: 'CSS', category: 'languages', level: 95, color: '#1572B6' },
-  { name: 'Sentry', category: 'tools', level: 80, color: '#362D59' },
-  { name: 'CI/CD', category: 'methodologies', level: 82, color: '#6366f1' },
+  { name: 'React Native', category: 'frameworks', level: 92, color: '#61DAFB' },
+  { name: 'TypeScript', category: 'languages', level: 93, color: '#3178C6' },
+  { name: 'JavaScript', category: 'languages', level: 96, color: '#F7DF1E' },
+  { name: 'Node.js', category: 'frameworks', level: 88, color: '#339933' },
+  { name: 'Remotion', category: 'frameworks', level: 90, color: '#0b84f3' },
+  { name: 'Solidity', category: 'web3', level: 82, color: '#00e676' },
+  { name: 'ethers.js', category: 'web3', level: 85, color: '#5cffab' },
+  { name: 'Account Abstraction', category: 'web3', level: 88, color: '#f5c518' },
+  { name: 'Claude SDK', category: 'ai', level: 94, color: '#d97757' },
+  { name: 'Agentic Workflows', category: 'ai', level: 92, color: '#ffe27a' },
+  { name: 'LangChain', category: 'ai', level: 78, color: '#1c9c6b' },
+  { name: 'Python', category: 'languages', level: 74, color: '#3776AB' },
+  { name: 'GraphQL', category: 'tools', level: 82, color: '#E10098' },
+  { name: 'WebSockets', category: 'tools', level: 88, color: '#00e676' },
+  { name: 'AWS', category: 'tools', level: 76, color: '#FF9900' },
+  { name: 'Sentry', category: 'tools', level: 82, color: '#8a5cf6' },
+  { name: 'CI/CD', category: 'tools', level: 84, color: '#5cffab' },
 ]
 
 const categories = [
   { id: 'all', label: 'All' },
-  { id: 'languages', label: 'Languages' },
+  { id: 'ai', label: 'AI / Agents' },
+  { id: 'web3', label: 'Web3 / DeFi' },
   { id: 'frameworks', label: 'Frameworks' },
+  { id: 'languages', label: 'Languages' },
   { id: 'tools', label: 'Tools' },
 ]
 
@@ -71,11 +75,11 @@ export default function Skills() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            Technical Expertise
+            {'// Asset Allocation'}
           </motion.span>
           <AnimatedText
-            text="Skills & Technologies"
-            className="text-3xl md:text-5xl lg:text-6xl font-display font-bold"
+            text="The Stack"
+            className="text-3xl md:text-5xl lg:text-6xl font-display font-bold justify-center"
           />
         </div>
 
@@ -92,7 +96,7 @@ export default function Skills() {
               onClick={() => setActiveCategory(category.id)}
               className={`px-4 md:px-6 py-2 text-sm md:text-base rounded-full font-medium transition-all ${
                 activeCategory === category.id
-                  ? 'bg-accent text-white'
+                  ? 'bg-accent text-primary glow'
                   : 'glass text-text-secondary hover:text-white'
               }`}
             >

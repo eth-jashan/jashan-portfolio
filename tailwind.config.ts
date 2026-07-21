@@ -9,12 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0a0a0a',
-        secondary: '#1a1a1a',
-        accent: '#6366f1',
-        'accent-light': '#818cf8',
-        'text-primary': '#fafafa',
-        'text-secondary': '#a1a1aa',
+        primary: '#050807',
+        secondary: '#0b120e',
+        accent: '#00e676',
+        'accent-light': '#5cffab',
+        gold: '#f5c518',
+        'gold-light': '#ffe27a',
+        danger: '#ff4d5e',
+        'text-primary': '#f2fbf6',
+        'text-secondary': '#8aa398',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -29,6 +32,9 @@ const config: Config = {
         'morph': 'morph 8s ease-in-out infinite',
         'spin-slow': 'spin 20s linear infinite',
         'bounce-slow': 'bounce 3s infinite',
+        'ticker': 'ticker 40s linear infinite',
+        'ticker-fast': 'ticker 25s linear infinite',
+        'flicker': 'flicker 3s linear infinite',
       },
       keyframes: {
         float: {
@@ -47,6 +53,16 @@ const config: Config = {
           '0%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
           '50%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' },
           '100%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
+        },
+        ticker: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        flicker: {
+          '0%, 100%': { opacity: '1' },
+          '92%': { opacity: '1' },
+          '94%': { opacity: '0.4' },
+          '96%': { opacity: '1' },
         },
       },
       backgroundImage: {

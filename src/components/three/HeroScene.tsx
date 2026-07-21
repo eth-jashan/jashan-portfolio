@@ -10,6 +10,7 @@ import {
   Torus,
   Octahedron,
   Environment,
+  Lightformer,
   Stars
 } from '@react-three/drei'
 import * as THREE from 'three'
@@ -187,7 +188,7 @@ function ParticleField() {
       </bufferGeometry>
       <pointsMaterial
         size={0.03}
-        color="#6366f1"
+        color="#00e676"
         transparent
         opacity={0.6}
         sizeAttenuation
@@ -222,8 +223,8 @@ function GlowingOrb() {
     <mesh ref={meshRef} position={[0, 0, -2]}>
       <sphereGeometry args={[2, 64, 64]} />
       <meshStandardMaterial
-        color="#6366f1"
-        emissive="#4338ca"
+        color="#00e676"
+        emissive="#0a7d43"
         emissiveIntensity={0.5}
         roughness={0.2}
         metalness={0.8}
@@ -258,12 +259,13 @@ function CameraController() {
 function Scene() {
   return (
     <>
-      <color attach="background" args={['#0a0a0a']} />
-      <fog attach="fog" args={['#0a0a0a', 5, 25]} />
+      <color attach="background" args={['#050807']} />
+      <fog attach="fog" args={['#050807', 5, 25]} />
 
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} color="#6366f1" />
+      <pointLight position={[-10, -10, -5]} intensity={0.6} color="#00e676" />
+      <pointLight position={[10, -8, -3]} intensity={0.35} color="#f5c518" />
 
       <CameraController />
 
@@ -271,12 +273,12 @@ function Scene() {
       <GlowingOrb />
 
       {/* Floating shapes */}
-      <FloatingShapeSphere position={[-3, 2, -3]} color="#6366f1" scale={0.5} speed={1.2} />
-      <FloatingShapeOctahedron position={[3, -1, -4]} color="#8b5cf6" scale={0.4} speed={0.8} />
-      <FloatingShapeTorus position={[-2, -2, -2]} color="#d946ef" scale={0.6} speed={1.5} />
-      <FloatingShapeBox position={[2.5, 1.5, -5]} color="#6366f1" scale={0.3} speed={1} />
-      <FloatingShapeSphere position={[-4, 0, -6]} color="#818cf8" scale={0.4} speed={0.7} />
-      <FloatingShapeOctahedron position={[4, -2, -4]} color="#a78bfa" scale={0.3} speed={1.3} />
+      <FloatingShapeSphere position={[-3, 2, -3]} color="#00e676" scale={0.5} speed={1.2} />
+      <FloatingShapeOctahedron position={[3, -1, -4]} color="#f5c518" scale={0.4} speed={0.8} />
+      <FloatingShapeTorus position={[-2, -2, -2]} color="#34d399" scale={0.6} speed={1.5} />
+      <FloatingShapeBox position={[2.5, 1.5, -5]} color="#00e676" scale={0.3} speed={1} />
+      <FloatingShapeSphere position={[-4, 0, -6]} color="#5cffab" scale={0.4} speed={0.7} />
+      <FloatingShapeOctahedron position={[4, -2, -4]} color="#f5c518" scale={0.3} speed={1.3} />
 
       {/* Particle field */}
       <ParticleField />
@@ -284,7 +286,12 @@ function Scene() {
       {/* Background stars */}
       <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
 
-      <Environment preset="night" />
+      {/* Locally-generated environment (no network fetch) */}
+      <Environment resolution={64}>
+        <Lightformer intensity={2} position={[0, 5, -5]} scale={[10, 10, 1]} color="#00e676" />
+        <Lightformer intensity={1.2} position={[5, -2, 4]} scale={[8, 8, 1]} color="#f5c518" />
+        <Lightformer intensity={0.8} position={[-5, 1, 3]} scale={[8, 8, 1]} color="#34d399" />
+      </Environment>
     </>
   )
 }

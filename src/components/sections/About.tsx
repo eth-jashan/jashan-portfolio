@@ -75,11 +75,11 @@ export default function About() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            About Me
+            {'// The Operator'}
           </motion.span>
           <AnimatedText
-            text="Crafting Digital Experiences"
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold"
+            text="I Build Where Money Moves"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold justify-center"
           />
         </div>
 
@@ -92,7 +92,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-2xl font-display font-semibold mb-6">
-              Hi, I&apos;m <span className="gradient-text">Jashan</span>
+              Co-founder, closer of loops — <span className="gradient-text">Jashan</span>
             </h3>
 
             <p className="text-text-secondary text-lg leading-relaxed mb-6">
@@ -120,18 +120,18 @@ export default function About() {
 
             {/* Quick Info */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="glass rounded-xl p-4">
-                <span className="text-text-secondary text-sm">Location</span>
+              <div className="terminal rounded-xl p-4">
+                <span className="text-text-secondary text-xs font-mono uppercase tracking-wider">Based</span>
                 <p className="text-white font-medium">{personalInfo.location}</p>
               </div>
-              <div className="glass rounded-xl p-4">
-                <span className="text-text-secondary text-sm">Experience</span>
-                <p className="text-white font-medium">4+ Years</p>
+              <div className="terminal rounded-xl p-4">
+                <span className="text-text-secondary text-xs font-mono uppercase tracking-wider">Compounding</span>
+                <p className="text-white font-medium">5+ Years</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column - Achievement Cards */}
+          {/* Right Column - P&L Grid */}
           <motion.div
             className="grid grid-cols-2 gap-4"
             initial={{ opacity: 0, x: 50 }}
@@ -141,20 +141,25 @@ export default function About() {
             {achievements.map((achievement, index) => (
               <motion.div
                 key={index}
-                className="group glass rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 animated-border"
+                className="group terminal rounded-2xl p-6 hover:border-accent/40 transition-all duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 animate={contentInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="text-accent mb-4 group-hover:scale-110 transition-transform">
-                  {achievementIcons[achievement.icon]}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-accent group-hover:scale-110 transition-transform">
+                    {achievementIcons[achievement.icon]}
+                  </div>
+                  <span className="text-accent text-xs font-mono flex items-center gap-1">
+                    <span className="text-[8px]">▲</span>
+                  </span>
                 </div>
-                <div className="text-3xl font-display font-bold gradient-text mb-2">
+                <div className="text-2xl md:text-3xl font-display font-bold gradient-text mb-2">
                   {achievement.value}
                 </div>
-                <h4 className="font-semibold text-white mb-1">{achievement.title}</h4>
-                <p className="text-text-secondary text-sm">{achievement.description}</p>
+                <h4 className="font-semibold text-white mb-1 text-sm">{achievement.title}</h4>
+                <p className="text-text-secondary text-xs leading-relaxed">{achievement.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -168,7 +173,7 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <p className="text-center text-text-secondary text-sm mb-6 font-mono">
-            Technologies I work with
+            {'// the stack behind the rails'}
           </p>
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-primary to-transparent z-10" />
@@ -176,7 +181,7 @@ export default function About() {
             <div className="flex animate-marquee">
               {[...Array(2)].map((_, i) => (
                 <div key={i} className="flex gap-8 px-4">
-                  {['React', 'React Native', 'Next.js', 'TypeScript', 'Node.js', 'GraphQL', 'WebSockets', 'Solidity', 'AWS', 'Python', 'JavaScript', 'CSS'].map((tech) => (
+                  {['React', 'React Native', 'TypeScript', 'Node.js', 'Remotion', 'Solidity', 'ethers.js', 'Account Abstraction', 'Claude SDK', 'WebSockets', 'AWS', 'Python'].map((tech) => (
                     <span
                       key={`${i}-${tech}`}
                       className="text-2xl font-display font-semibold text-white/20 whitespace-nowrap hover:text-accent transition-colors cursor-default"

@@ -4,53 +4,87 @@ import { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useInView } from '@/hooks/useInView'
 import AnimatedText from '@/components/ui/AnimatedText'
-import { projects, experience } from '@/data/portfolio'
 
-// Get featured company projects
+// Flagship ventures & products
 const featuredProjects = [
   {
-    title: 'DeepReel',
-    description: 'AI-powered video platform with React-based interface and advanced analytics',
+    title: 'Xybit',
+    description: 'White-labelled derivatives / prop-firm platform on gas-less, cross-chain rails',
     highlights: [
-      'Built Remotion Genie Editor with SVG masking and dynamic captions',
-      'Created dashboards with heatmaps and funnel charts',
-      'Integrated granular analytics for video interactions',
+      'Funded-account challenge logic + payout rails, built 0-to-1',
+      'Account Abstraction — no private keys, fully gas-less UX',
+      'Cross-chain deposits & trading unified into one money layer',
     ],
-    technologies: ['React', 'Next.js', 'Remotion', 'Analytics', 'BAML'],
-    link: 'https://www.deepreel.com/',
-    image: '/projects/deepreel.png',
-    gradient: 'from-violet-600 to-indigo-600',
+    technologies: ['Account Abstraction', 'ethers.js', 'React Native', 'WebSockets'],
+    link: null,
+    tag: 'Co-Founder',
+    gradient: 'from-emerald-500 to-green-600',
   },
   {
-    title: 'LXME',
-    description: 'Financial platform for women with 8,000+ daily active users',
+    title: 'ViewMax — AI Ad Cloner',
+    description: 'Agentic pipeline that regenerates branded ad variations from one reference input',
     highlights: [
-      'Upgraded React Native from 0.69 to 0.74',
-      'Reduced crash rate from 6% to 1.25%',
-      'Spearheaded Savings Challenge feature driving 30% SIP growth',
+      'Seedance video model + Claude SDK, agent-orchestrated',
+      'Credit-system infra metering every AI generation',
+      'Remotion editor + AI auto-captioning pipeline',
     ],
-    technologies: ['React Native', 'Sentry', 'TypeScript'],
-    link: 'https://lxme.in',
-    image: '/projects/lxme.png',
-    gradient: 'from-pink-600 to-rose-600',
+    technologies: ['Remotion', 'Seedance', 'Claude SDK', 'Billing'],
+    link: null,
+    tag: 'Full-Stack',
+    gradient: 'from-lime-500 to-emerald-600',
+  },
+  {
+    title: 'DeepReel — Genie Editor',
+    description: 'AI-native Remotion editor with SVG masking, dynamic captions & timeline composition',
+    highlights: [
+      'Pioneered Claude Code PRD-to-implementation workflow',
+      'Rebuilt frontend in responsive React / TypeScript',
+      'Shipped heatmap, funnel & session-flow dashboards',
+    ],
+    technologies: ['Claude Code', 'Remotion', 'React', 'Analytics'],
+    link: 'https://www.deepreel.com/',
+    tag: 'SDE',
+    gradient: 'from-yellow-400 to-amber-500',
   },
   {
     title: 'Rep3',
-    description: 'Web3 community engagement platform with 250K+ gas-less badges minted',
+    description: 'Web3 SaaS compensating DAO contributors via crypto & NFTs — 250K+ gas-less badges',
     highlights: [
-      'Built SaaS platform for DAO contributor compensation',
-      'Created NPM package for protocol integration',
-      'Implemented robust CI/CD pipelines',
+      'Built on-chain payout & settlement primitives',
+      'Reusable NPM package for protocol integration',
+      'Robust CI/CD for seamless, reliable releases',
     ],
-    technologies: ['Node.js', 'Solidity', 'JavaScript', 'CI/CD'],
+    technologies: ['Solidity', 'Node.js', 'NFTs', 'CI/CD'],
     link: 'https://app.rep3.gg/',
-    image: '/projects/rep3.png',
-    gradient: 'from-emerald-600 to-teal-600',
+    tag: 'Core Eng',
+    gradient: 'from-teal-500 to-emerald-600',
   },
-  ...projects.map((p, i) => ({
-    ...p,
-    gradient: i === 0 ? 'from-amber-600 to-orange-600' : 'from-cyan-600 to-blue-600',
-  })),
+  {
+    title: 'LXME',
+    description: 'Mobile-native fintech — savings & SIP investing for 8,000+ daily active users',
+    highlights: [
+      'React Native upgrade 0.69 → 0.74',
+      'Crash rate cut 6% → 1.25% via Sentry + profiling',
+      'Savings Challenge drove 30% of new SIP investments',
+    ],
+    technologies: ['React Native', 'Sentry', 'Payments UX'],
+    link: 'https://lxme.in',
+    tag: 'Sr. Frontend',
+    gradient: 'from-green-500 to-teal-600',
+  },
+  {
+    title: 'Sabkuch2Home',
+    description: 'Hyperlocal grocery e-commerce shipped 0-to-1 during COVID-19 lockdown',
+    highlights: [
+      'Real-time inventory tracking & seamless checkout',
+      'Founder-owned build, end-to-end',
+      'Scaled to ~INR 3–4L peak business',
+    ],
+    technologies: ['React', 'E-commerce', 'Real-time'],
+    link: null,
+    tag: 'Co-Founder',
+    gradient: 'from-amber-400 to-yellow-500',
+  },
 ]
 
 export default function Projects() {
@@ -73,11 +107,11 @@ export default function Projects() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            Featured Work
+            {'// Portfolio'}
           </motion.span>
           <AnimatedText
-            text="Projects & Products"
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold"
+            text="Ventures Shipped"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold justify-center"
           />
           <motion.p
             className="mt-6 text-text-secondary max-w-2xl mx-auto"
@@ -85,7 +119,7 @@ export default function Projects() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            A showcase of products and platforms I&apos;ve helped build
+            Products and platforms taken from zero to launch — where the code compounds into revenue.
           </motion.p>
         </div>
 
@@ -107,6 +141,7 @@ interface Project {
   technologies: string[]
   link: string | null
   gradient: string
+  tag?: string
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -184,6 +219,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {/* Header */}
           <div className="flex items-start justify-between mb-6">
             <div>
+              {project.tag && (
+                <span className="inline-block mb-2 px-2 py-0.5 rounded bg-accent/15 text-accent text-[10px] font-mono uppercase tracking-wider border border-accent/25">
+                  {project.tag}
+                </span>
+              )}
               <h3 className="text-2xl font-display font-bold text-white group-hover:text-accent transition-colors">
                 {project.title}
               </h3>

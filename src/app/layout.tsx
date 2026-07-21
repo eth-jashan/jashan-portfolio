@@ -6,9 +6,9 @@ import LoadingScreen from '@/components/ui/LoadingScreen'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jashanshetty.com'),
-  title: 'Jashan Shetty | Full Stack Engineer',
-  description: 'Results-driven Full Stack Developer with 4 years of professional experience crafting robust web and mobile applications using React, React Native, and Node.js.',
-  keywords: ['Full Stack Engineer', 'React Developer', 'Full Stack Developer', 'Jashan Shetty', 'Web Developer', 'React Native', 'Node.js', 'TypeScript'],
+  title: 'Jashan Shetty | Senior Full-Stack Engineer',
+  description: 'Senior Full-Stack Engineer with 5+ years building the rails money moves on — AI agents & agentic workflows, Web3 / DeFi rails, and mobile-native fintech. Co-founder of Xybit.',
+  keywords: ['Senior Full-Stack Engineer', 'AI Agents', 'Agentic Workflows', 'Web3', 'DeFi', 'Account Abstraction', 'React Native', 'Fintech', 'Jashan Shetty', 'Claude SDK', 'TypeScript', 'Solidity'],
   authors: [{ name: 'Jashan Shetty' }],
   icons: {
     icon: '/icon.png',
@@ -16,16 +16,16 @@ export const metadata: Metadata = {
     apple: '/icon.png',
   },
   openGraph: {
-    title: 'Jashan Shetty | Full Stack Engineer',
-    description: 'Results-driven Full Stack Developer with 4 years of professional experience',
+    title: 'Jashan Shetty | Senior Full-Stack Engineer',
+    description: 'AI agents · Web3 / DeFi rails · mobile-native fintech. 5+ years shipping 0-to-1 where money moves.',
     type: 'website',
     locale: 'en_US',
     images: ['/avatar.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jashan Shetty | Full Stack Engineer',
-    description: 'Results-driven Full Stack Developer with 4 years of professional experience',
+    title: 'Jashan Shetty | Senior Full-Stack Engineer',
+    description: 'AI agents · Web3 / DeFi rails · mobile-native fintech. 5+ years shipping 0-to-1 where money moves.',
     images: ['/avatar.png'],
   },
   robots: {

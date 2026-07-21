@@ -36,11 +36,11 @@ export default function Experience() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            Career Journey
+            {'// Track Record'}
           </motion.span>
           <AnimatedText
-            text="Work Experience"
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold"
+            text="Positions Held"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold justify-center"
           />
         </div>
 
@@ -54,8 +54,8 @@ export default function Experience() {
                   onClick={() => setActiveIndex(index)}
                   className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
                     activeIndex === index
-                      ? 'bg-accent/20 border-l-4 border-accent'
-                      : 'hover:bg-white/5 border-l-4 border-transparent'
+                      ? 'bg-accent/10 border-l-4 border-accent glow'
+                      : 'hover:bg-accent/5 border-l-4 border-transparent'
                   }`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -81,7 +81,7 @@ export default function Experience() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="glass rounded-2xl p-8"
+                className="terminal rounded-2xl p-8"
               >
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
@@ -196,7 +196,7 @@ function ExperienceCard({
       {/* Timeline dot */}
       <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-accent border-4 border-primary" />
 
-      <div className="glass rounded-xl p-6">
+      <div className="terminal rounded-xl p-6">
         <div className="flex items-start justify-between gap-4 mb-4">
           <div>
             <h3 className="font-display font-bold text-white">{job.title}</h3>

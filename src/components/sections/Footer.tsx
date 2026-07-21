@@ -14,13 +14,13 @@ export default function Footer() {
           <div>
             <motion.a
               href="#home"
-              className="text-3xl font-display font-bold gradient-text inline-block mb-4"
+              className="text-3xl font-display font-bold gradient-text font-mono inline-block mb-4"
               whileHover={{ scale: 1.05 }}
             >
-              JS
+              $JSHN
             </motion.a>
             <p className="text-text-secondary max-w-xs">
-              Full Stack Engineer passionate about building exceptional digital experiences.
+              Senior Full-Stack Engineer building the rails money moves on — AI agents, DeFi, and mobile-native fintech.
             </p>
           </div>
 

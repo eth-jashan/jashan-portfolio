@@ -44,7 +44,7 @@ export default function LoadingScreen() {
 
           {/* Logo animation */}
           <motion.div
-            className="relative z-10 mb-8"
+            className="relative z-10 mb-8 text-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -55,14 +55,22 @@ export default function LoadingScreen() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              JS
+              $JSHN
+            </motion.div>
+            <motion.div
+              className="mt-2 font-mono text-xs text-accent tracking-widest flex items-center justify-center gap-1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <span className="text-[8px]">▲</span> MARKET OPEN
             </motion.div>
           </motion.div>
 
           {/* Progress bar */}
-          <div className="relative w-64 h-1 bg-secondary rounded-full overflow-hidden">
+          <div className="relative w-64 h-1 bg-secondary rounded-full overflow-hidden border border-accent/10">
             <motion.div
-              className="absolute left-0 top-0 h-full bg-gradient-to-r from-accent to-accent-light rounded-full"
+              className="absolute left-0 top-0 h-full bg-gradient-to-r from-accent to-gold rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${Math.min(progress, 100)}%` }}
               transition={{ duration: 0.3 }}
@@ -76,7 +84,7 @@ export default function LoadingScreen() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Loading experience...
+            Booting terminal · {Math.min(Math.round(progress), 100)}%
           </motion.p>
 
           {/* Animated dots */}
