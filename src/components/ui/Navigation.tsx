@@ -3,215 +3,124 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { navItems, personalInfo } from '@/data/portfolio'
-import { MagneticButton } from './MagneticButton'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-
-      // Find active section
-      const sections = navItems.map((item) => item.href.slice(1))
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 200) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 8)
     window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false)
-    const element = document.getElementById(href.slice(1))
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <>
-      {/* Main Navigation */}
-      <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'py-4' : 'py-6'
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-apple ${
+          isScrolled ? 'frosted border-b border-line/60' : 'bg-transparent'
         }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div className="container mx-auto px-6">
-          <div
-            className={`flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
-              isScrolled ? 'glass' : ''
-            }`}
-          >
-            {/* Logo */}
-            <motion.a
-              href="#home"
-              className="text-xl md:text-2xl font-display font-bold gradient-text font-mono"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+        <nav className="mx-auto max-w-content px-5 md:px-8">
+          <div className="flex h-12 md:h-[52px] items-center justify-between">
+            {/* Wordmark */}
+            <button
+              onClick={() => handleNavClick('#home')}
+              className="text-[15px] font-semibold tracking-tight text-text-primary transition-opacity hover:opacity-60"
             >
-              $JSHN
-            </motion.a>
+              Jashan Shetty
+            </button>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1">
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
-                <motion.button
+                <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-colors relative ${
-                    activeSection === item.href.slice(1)
-                      ? 'text-white'
-                      : 'text-text-secondary hover:text-white'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="text-[13px] text-text-secondary transition-colors hover:text-text-primary"
                 >
-                  {activeSection === item.href.slice(1) && (
-                    <motion.div
-                      className="absolute inset-0 bg-accent/20 rounded-full"
-                      layoutId="activeSection"
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{item.name}</span>
-                </motion.button>
+                  {item.name}
+                </button>
               ))}
-            </div>
-
-            {/* CTA Button */}
-            <div className="hidden md:block">
-              <MagneticButton
-                className="px-6 py-2 bg-accent text-primary text-sm font-semibold rounded-full hover:bg-accent-light transition-colors glow"
-                onClick={() => handleNavClick('#contact')}
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] font-medium text-accent transition-opacity hover:opacity-70"
               >
-                Let&apos;s Talk
-              </MagneticButton>
+                Résumé
+              </a>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile toggle */}
             <button
-              className="md:hidden p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden -mr-2 p-2"
+              onClick={() => setIsMenuOpen((v) => !v)}
               aria-label="Toggle menu"
             >
-              <div className="w-6 h-5 flex flex-col justify-between">
+              <div className="flex w-5 flex-col gap-[5px]">
                 <motion.span
-                  className="w-full h-0.5 bg-white rounded-full"
-                  animate={isMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
+                  className="h-px w-full bg-text-primary"
+                  animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                 />
                 <motion.span
-                  className="w-full h-0.5 bg-white rounded-full"
+                  className="h-px w-full bg-text-primary"
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
                 />
                 <motion.span
-                  className="w-full h-0.5 bg-white rounded-full"
-                  animate={isMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
+                  className="h-px w-full bg-text-primary"
+                  animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                 />
               </div>
             </button>
           </div>
-        </div>
-      </motion.nav>
+        </nav>
+      </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 md:hidden frosted"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <div
-              className="absolute inset-0 bg-primary/95 backdrop-blur-lg"
-              onClick={() => setIsMenuOpen(false)}
-            />
-            <motion.div
-              className="relative h-full flex flex-col items-center justify-center gap-8"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              transition={{ delay: 0.1 }}
-            >
-              {navItems.map((item, index) => (
+            <div className="flex h-full flex-col items-start justify-center gap-2 px-8">
+              {navItems.map((item, i) => (
                 <motion.button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-3xl font-display font-bold text-white hover:text-accent transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  className="py-2 text-4xl font-semibold tracking-tight text-text-primary"
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 >
                   {item.name}
                 </motion.button>
               ))}
-              <motion.div
-                className="mt-8 flex gap-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+              <motion.a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 text-4xl font-semibold tracking-tight text-accent"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05 + navItems.length * 0.05, ease: [0.16, 1, 0.3, 1] }}
               >
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-white transition-colors"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-text-secondary hover:text-white transition-colors"
-                >
-                  LinkedIn
-                </a>
-              </motion.div>
-            </motion.div>
+                Résumé
+              </motion.a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Scroll Progress Indicator */}
-      <ScrollProgress />
     </>
-  )
-}
-
-function ScrollProgress() {
-  const [progress, setProgress] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-accent z-50 origin-left"
-      style={{ scaleX: progress / 100 }}
-    />
   )
 }

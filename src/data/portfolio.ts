@@ -260,10 +260,9 @@ export const education = {
 }
 
 export const navItems = [
-  { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  { name: 'Track Record', href: '#experience' },
-  { name: 'Ventures', href: '#projects' },
-  { name: 'Stack', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Work', href: '#work' },
+  { name: 'Skills', href: '#skills' },
   { name: 'Contact', href: '#contact' },
 ]

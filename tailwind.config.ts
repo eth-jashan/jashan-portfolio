@@ -9,66 +9,56 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#050807',
-        secondary: '#0b120e',
-        accent: '#00e676',
-        'accent-light': '#5cffab',
-        gold: '#f5c518',
-        'gold-light': '#ffe27a',
-        danger: '#ff4d5e',
-        'text-primary': '#f2fbf6',
-        'text-secondary': '#8aa398',
+        // Apple-inspired system palette
+        primary: '#ffffff',      // canvas
+        secondary: '#f5f5f7',    // subtle surface
+        surface: '#fbfbfd',
+        accent: '#0071e3',       // Apple blue
+        'accent-light': '#0077ed',
+        line: '#d2d2d7',         // hairline
+        'text-primary': '#1d1d1f',
+        'text-secondary': '#6e6e73',
+        'text-tertiary': '#86868b',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'SF Pro Display',
+          'SF Pro Text',
+          'Inter',
+          'Segoe UI',
+          'system-ui',
+          'sans-serif',
+        ],
+        display: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'SF Pro Display',
+          'Inter',
+          'system-ui',
+          'sans-serif',
+        ],
+        mono: ['SF Mono', 'ui-monospace', 'JetBrains Mono', 'monospace'],
+      },
+      letterSpacing: {
+        tightest: '-0.03em',
+        tighter: '-0.022em',
+      },
+      maxWidth: {
+        content: '1120px',
+      },
+      transitionTimingFunction: {
+        apple: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'gradient': 'gradient 8s ease infinite',
-        'text-shimmer': 'text-shimmer 2.5s ease-out infinite alternate',
-        'morph': 'morph 8s ease-in-out infinite',
-        'spin-slow': 'spin 20s linear infinite',
-        'bounce-slow': 'bounce 3s infinite',
-        'ticker': 'ticker 40s linear infinite',
-        'ticker-fast': 'ticker 25s linear infinite',
-        'flicker': 'flicker 3s linear infinite',
+        'fade-in': 'fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        gradient: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
-        'text-shimmer': {
-          '0%': { backgroundPosition: '0% 50%' },
-          '100%': { backgroundPosition: '100% 50%' },
-        },
-        morph: {
-          '0%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
-          '50%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' },
-          '100%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
-        },
-        ticker: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        flicker: {
-          '0%, 100%': { opacity: '1' },
-          '92%': { opacity: '1' },
-          '94%': { opacity: '0.4' },
-          '96%': { opacity: '1' },
-        },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'noise': "url('/noise.png')",
       },
     },
   },

@@ -1,7 +1,7 @@
 import Navigation from '@/components/ui/Navigation'
 import Hero from '@/components/sections/Hero'
+import Metrics from '@/components/sections/Metrics'
 import About from '@/components/sections/About'
-import Vibes from '@/components/sections/Vibes'
 import Experience from '@/components/sections/Experience'
 import Projects from '@/components/sections/Projects'
 import Skills from '@/components/sections/Skills'
@@ -13,8 +13,8 @@ export default function Home() {
     <main className="relative">
       <Navigation />
       <Hero />
+      <Metrics />
       <About />
-      <Vibes />
       <Experience />
       <Projects />
       <Skills />
